@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-## [0.1.4] - 2019-05-29
+## [0.1.4] - 2019-06-13
 
 ### Added
 - You can now configure which environment would get what externs.
@@ -27,4 +27,4 @@ extern file in location `src/<project-dirs>/client/externs.js`.
 To retain it, you have to add `:add-example-api? true` to the config options.
 
 [0.1.3]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.3
-[0.1.4]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.4
+[0.1.4]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.4

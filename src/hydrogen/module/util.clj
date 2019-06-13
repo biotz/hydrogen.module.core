@@ -1,4 +1,4 @@
-(ns hydrogen.module.cljs.util
+(ns hydrogen.module.util
   (:require [clojure.string :as str]))
 
 (defn project-ns [config options]

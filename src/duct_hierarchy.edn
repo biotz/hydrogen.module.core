@@ -1,2 +1,1 @@
-{:hydrogen.module.cljs/core [:duct/module]
- :hydrogen.module.cljs/session [:duct/module]}
+{:hydrogen.module/core [:duct/module]}

@@ -1,11 +1,9 @@
-(ns hydrogen.module.cljs.core
+(ns hydrogen.module.core
   (:require [duct.core :as core]
             [integrant.core :as ig]
-            [hydrogen.module.cljs.util :as util]))
+            [hydrogen.module.util :as util]))
 
 (defn- externs-paths [options environment]
-  {:post [(vector? %)
-          (every? string? %)]}
   (when-let [externs-paths (:externs-paths options)]
     (if (map? externs-paths)
       (get externs-paths environment) externs-paths)))
@@ -31,7 +29,8 @@
 (defn- duct-server-figwheel-build-options [config options]
   (let [project-ns (util/project-ns config options)
         project-dirs (util/project-dirs config options)
-        externs (externs-paths options :development)]
+        externs (or (externs-paths options :development)
+                    [(format "src/%s/client/externs.js" project-dirs)])]
     (cond->
      {:main (symbol (str project-ns ".client"))
       :output-to (format "target/resources/%s/public/js/main.js" project-dirs)
@@ -61,6 +60,8 @@
 
    (keyword (str project-ns ".static/root")) {}
 
+   (keyword (str project-ns ".api/config")) {}
+
    :duct.compiler/sass {:source-paths ["resources"]
                         :output-path "target/resources"}})
 
@@ -79,6 +80,6 @@
       (= environment :production)
       (assoc :duct.compiler/cljs (compiler-config config options)))))
 
-(defmethod ig/init-key :hydrogen.module.cljs/core [_ options]
+(defmethod ig/init-key :hydrogen.module/core [_ options]
   (fn [config]
     (core/merge-configs config (core-config config options))))
