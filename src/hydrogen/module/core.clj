@@ -28,21 +28,19 @@
 
 (defn- duct-server-figwheel-build-options [config options]
   (let [project-ns (util/project-ns config options)
-        project-dirs (util/project-dirs config options)
-        externs (or (externs-paths options :development)
-                    [(format "src/%s/client/externs.js" project-dirs)])]
-    (cond->
-     {:main (symbol (str project-ns ".client"))
-      :output-to (format "target/resources/%s/public/js/main.js" project-dirs)
-      :output-dir (format "target/resources/%s/public/js" project-dirs)
-      :asset-path "/js"
-      :closure-defines {'goog.DEBUG true
-                        "re_frame.trace.trace_enabled_QMARK_" true}
-      :verbose false
-      :preloads ['devtools.preload
-                 'day8.re-frame-10x.preload]
-      :optimizations :none}
-      externs (assoc :externs externs))))
+        project-dirs (util/project-dirs config options)]
+    {:main (symbol (str project-ns ".client"))
+     :output-to (format "target/resources/%s/public/js/main.js" project-dirs)
+     :output-dir (format "target/resources/%s/public/js" project-dirs)
+     :asset-path "/js"
+     :closure-defines {'goog.DEBUG true
+                       "re_frame.trace.trace_enabled_QMARK_" true}
+     :verbose false
+     :preloads ['devtools.preload
+                'day8.re-frame-10x.preload]
+     :optimizations :none
+     :externs (or (externs-paths options :development)
+                  [(format "src/%s/client/externs.js" project-dirs)])}))
 
 (defn- figwheel-config
   [config options]
