@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.1.6] - 2019-07-23
+
 ### Added
 - tests
 
@@ -39,4 +41,5 @@ To retain it, you have to add `:add-example-api? true` to the config options.
 [0.1.3]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.3
 [0.1.4]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.4
 [0.1.5]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.5
-[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.5...HEAD
+[0.1.6]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.6
+[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.6...HEAD
