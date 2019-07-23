@@ -1,4 +1,4 @@
-(defproject hydrogen/module.core "0.1.7-SNAPSHOT"
+(defproject hydrogen/module.core "0.1.7"
   :description "Duct module for doing cljs-based SPA applications the Hydrogen way."
   :url "https://github.com/magnetcoop/hydrogen.module.core"
   :license {:name "Mozilla Public Licence 2.0"

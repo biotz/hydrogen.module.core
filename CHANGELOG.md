@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.1.7] - 2019-07-23
+
+## Changed
+- `:add-api-example?` option is no longer used (and is now ignored).
+- Moved all non-Clojurescript config back to Hydrogen Duct Template. This version should only be used with Hydrogen Duct template 0.1.8 or newer
+
 ## [0.1.6] - 2019-07-23
 
 ### Added
@@ -42,4 +48,5 @@ To retain it, you have to add `:add-example-api? true` to the config options.
 [0.1.4]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.4
 [0.1.5]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.5
 [0.1.6]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.6
-[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.6...HEAD
+[0.1.7]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.7
+[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.7...HEAD
