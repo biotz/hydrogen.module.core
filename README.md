@@ -33,15 +33,11 @@ And a more realistic example:
 For this reason it usually starts with `:add-example-api? true` option to make running demo more effortless.
 The default for this option is `false` so there's probably nothing for you to care about :)
  
-#### Note
-Figwheel expects files with .js extension inside its source
-directories to be a foreign library. And foreign libraries **MUST**
-declare a namespace. In fact, figwheel assumes it, and if it
-doesn't find it and can't map the file back to a source  file,
-it bombs out with a NullPointerException.
+#### \[1\]Note
 
-So even if this is *NOT* a foreign library, but just an externs file,
-add a namespace declaration to prevent figwheel from crashing.
+Figwheel expects files with .js extension inside its source directories to be a foreign library. And foreign libraries **MUST** declare a namespace. In fact, figwheel assumes it, and if it doesn't find it and can't map the file back to a source file, it bombs out with a NullPointerException.
+
+So even if externs files are *NOT* foreign libraries, make sure you add a namespace declaration to your externs files to prevent figwheel from crashing.
 
 Like this: `goog.provide('google.maps');`
 
