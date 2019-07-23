@@ -5,7 +5,7 @@ It implements a module for [Duct](https://github.com/duct-framework/duct).
 
 ## Installation
 
-[![Clojars Project](https://img.shields.io/clojars/v/hydrogen/module.core.svg)](https://clojars.org/hydrogen/module.core.clj)
+[![Clojars Project](https://img.shields.io/clojars/v/hydrogen/module.core.svg)](https://clojars.org/hydrogen/module.core)
 
 ## Usage
 
