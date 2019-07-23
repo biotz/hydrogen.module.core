@@ -29,9 +29,6 @@ And a more realistic example:
      and in production environment
      (as part of `:duct.compiler/cljs` config).
     - `{:externs-paths {:production ["a.js"] :development ["x.js" "y.js"]}}`
-- This module is used by Hydrogen CE and by [Hydrogen duct template](https://github.com/magnetcoop/hydrogen.duct-template).
-For this reason it usually starts with `:add-example-api? true` option to make running demo more effortless.
-The default for this option is `false` so there's probably nothing for you to care about :)
  
 #### \[1\]Note
 

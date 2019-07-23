@@ -51,26 +51,10 @@
                :source-paths ["dev/src" "src"]
                :build-options (duct-server-figwheel-build-options config options)}]}))
 
-(defn- core-config-base [project-ns]
-  {:duct.middleware.web/defaults {:security {:anti-forgery false}}
-   :duct.handler/root {:middleware [(ig/ref :duct.middleware.web/format)]}
-   :duct.middleware.web/format {}
-
-   (keyword (str project-ns ".static/root")) {}
-
-   (keyword (str project-ns ".api/config")) {}
-
-   :duct.compiler/sass {:source-paths ["resources"]
-                        :output-path "target/resources"}})
-
 (defn- core-config [config options]
   (let [project-ns (util/project-ns config options)
         environment (util/get-environment config options)]
-    (cond->
-     (core-config-base project-ns)
-
-      (:add-example-api? options)
-      (assoc (keyword (str project-ns ".api/example")) {})
+    (cond-> {}
 
       (= environment :development)
       (assoc :duct.server/figwheel

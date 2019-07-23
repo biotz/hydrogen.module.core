@@ -20,13 +20,6 @@
   (testing "blank production config"
     (is (= {:duct.core/project-ns 'foo.bar
             :duct.core/environment :production
-            :duct.middleware.web/defaults {:security {:anti-forgery false}}
-            :duct.handler/root {:middleware [(ig/ref :duct.middleware.web/format)]}
-            :duct.middleware.web/format {}
-            :foo.bar.static/root {}
-            :foo.bar.api/config {}
-            :duct.compiler/sass {:source-paths ["resources"]
-                                 :output-path "target/resources"}
             :duct.compiler/cljs {:builds
                                  [{:source-paths ["src/"]
                                    :build-options
@@ -44,13 +37,6 @@
   (testing "blank development config"
     (is (= {:duct.core/project-ns 'foo.bar
             :duct.core/environment :development
-            :duct.middleware.web/defaults {:security {:anti-forgery false}}
-            :duct.handler/root {:middleware [(ig/ref :duct.middleware.web/format)]}
-            :duct.middleware.web/format {}
-            :foo.bar.static/root {}
-            :foo.bar.api/config {}
-            :duct.compiler/sass {:source-paths ["resources"]
-                                 :output-path "target/resources"}
             :duct.server/figwheel {:css-dirs ["target/resources/foo/bar/public/css"]
                                    :builds [{:id "dev"
                                              :figwheel {:on-jsload "foo/bar.client/mount-root"}
@@ -95,11 +81,4 @@
     (let [config (core/build-config (merge base-production-config
                                            {:hydrogen.module/core {:externs-paths {:development ["x/y/another-externs.js"]}}}))
           actual-prod-externs-paths (get-in config [:duct.compiler/cljs :builds 0 :build-options :externs])]
-      (is (= actual-prod-externs-paths ["src/foo/bar/client/externs.js"]))))
-
-  (testing "add example api config"
-    (let [config (core/build-config (merge base-production-config
-                                           {:hydrogen.module/core {:add-example-api? true}}))]
-      (is (some-> config
-                  (get :foo.bar.api/example)
-                  (= {}))))))
+      (is (= actual-prod-externs-paths ["src/foo/bar/client/externs.js"])))))
