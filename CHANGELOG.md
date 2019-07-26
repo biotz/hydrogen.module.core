@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.1.8] - 2019-07-26
+
+## Changed
+- Update ClojureScript dependency version
+
 ## [0.1.7] - 2019-07-23
 
 ## Changed
@@ -44,9 +49,11 @@ extern file in location `src/<project-dirs>/client/externs.js`.
 - **Breaking change** - Now by default this module doesn't provide example api integrant key.
 To retain it, you have to add `:add-example-api? true` to the config options.
 
-[0.1.3]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.3
-[0.1.4]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.4
-[0.1.5]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.5
-[0.1.6]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.6
+[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.8
 [0.1.7]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.7
-[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.7...HEAD
+[0.1.6]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.6
+[0.1.5]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.5
+[0.1.4]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.4
+[0.1.3]: https://github.com/magnetcoop/hydrogen.module.cljs/releases/tag/v0.1.3
+
