@@ -6,7 +6,8 @@
 (defn- externs-paths [options environment]
   (when-let [externs-paths (:externs-paths options)]
     (if (map? externs-paths)
-      (get externs-paths environment) externs-paths)))
+      (get externs-paths environment)
+      externs-paths)))
 
 (defn- compiler-config
   [config options]
@@ -59,6 +60,7 @@
       (= environment :development)
       (assoc :duct.server/figwheel
              (figwheel-config config options))
+
       (= environment :production)
       (assoc :duct.compiler/cljs (compiler-config config options)))))
 
