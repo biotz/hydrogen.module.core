@@ -45,11 +45,9 @@
                                                              :output-to "target/resources/foo/bar/public/js/main.js"
                                                              :output-dir "target/resources/foo/bar/public/js"
                                                              :asset-path "/js"
-                                                             :closure-defines {'goog.DEBUG true
-                                                                               "re_frame.trace.trace_enabled_QMARK_" true}
+                                                             :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
                                                              :verbose false
-                                                             :preloads ['devtools.preload
-                                                                        'day8.re-frame-10x.preload]
+                                                             :preloads ['day8.re-frame-10x.preload]
                                                              :optimizations :none
                                                              :externs ["src/foo/bar/client/externs.js"]}}]}}
            (core/build-config base-development-config))))
