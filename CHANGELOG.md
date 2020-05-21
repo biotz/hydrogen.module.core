@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-## [0.1.10] - 2020-05-21
+## [0.1.11] - 2020-05-21
 
 ## Removed
 - Remove unnecessary goog.debug closure define
@@ -60,8 +60,8 @@ extern file in location `src/<project-dirs>/client/externs.js`.
 - **Breaking change** - Now by default this module doesn't provide example api integrant key.
 To retain it, you have to add `:add-example-api? true` to the config options.
 
-[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.10...HEAD
-[0.1.10]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.10
+[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.1.11...HEAD
+[0.1.11]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.11
 [0.1.9]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.9
 [0.1.8]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.8
 [0.1.7]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.7
