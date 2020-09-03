@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## Added
+- Support for figwheel-main config (add `:figwheel-main true` to module options)
+
+## Deprecated
+- Despite `lein-figwheel` still being used by default in order to maintain
+backwards-compatibility, it's deprecated now.
+
 ## [0.1.11] - 2020-05-21
 
 ## Removed

@@ -16,10 +16,16 @@ It implements a module for [Duct](https://github.com/duct-framework/duct).
 And a more realistic example:
 ```edn
 {:hydrogen.module/core
-  {:externs-paths {:production ["src/my-app/client/externs.js"
+  {:figwheel-main true
+   :externs-paths {:production ["src/my-app/client/externs.js"
                                 "src/my-app/client/google_maps_api_v3_36.js"]
                    :development ["oksol/client/google_maps_api_v3_36.js"]}}}
 ```
+
+### Important!
+
+As of version 0.2.0 this module supports new config syntax suitable for figwheel main.
+Make sure to add `:figwheel-main true` if you are using Figwheel-main.
 
 ### Additional options
 

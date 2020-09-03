@@ -1,4 +1,6 @@
 (ns hydrogen.module.core-test
+  "This namespace tests assuming figwheel-main option being used.
+  For deprecated lein-figwheel tests, see the respective namespace."
   (:require [clojure.test :refer :all]
             [duct.core :as core]
             [hydrogen.module.core :as sut]
@@ -14,7 +16,7 @@
 (def base-development-config
   {:duct.profile/base {:duct.core/project-ns 'foo.bar
                        :duct.core/environment :development}
-   :hydrogen.module/core {}})
+   :hydrogen.module/core {:figwheel-main true}})
 
 (deftest module-test
   (testing "blank production config"
@@ -37,19 +39,19 @@
   (testing "blank development config"
     (is (= {:duct.core/project-ns 'foo.bar
             :duct.core/environment :development
-            :duct.server/figwheel {:css-dirs ["target/resources/foo/bar/public/css"]
-                                   :builds [{:id "dev"
-                                             :figwheel {:on-jsload "foo/bar.client/mount-root"}
-                                             :source-paths ["dev/src" "src"]
-                                             :build-options {:main 'foo.bar.client
-                                                             :output-to "target/resources/foo/bar/public/js/main.js"
-                                                             :output-dir "target/resources/foo/bar/public/js"
-                                                             :asset-path "/js"
-                                                             :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
-                                                             :verbose false
-                                                             :preloads ['day8.re-frame-10x.preload]
-                                                             :optimizations :none
-                                                             :externs ["src/foo/bar/client/externs.js"]}}]}}
+            :duct.server/figwheel {:id "dev"
+                                   :options {:main 'foo.bar.client
+                                             :output-to "target/resources/foo/bar/public/js/main.js"
+                                             :output-dir "target/resources/foo/bar/public/js"
+                                             :asset-path "/js"
+                                             :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+                                             :verbose false
+                                             :preloads ['day8.re-frame-10x.preload]
+                                             :optimizations :none
+                                             :externs ["src/foo/bar/client/externs.js"]}
+                                   :config {:mode :serve
+                                            :open-url false
+                                            :css-dirs ["resources"]}}}
            (core/build-config base-development-config))))
 
   (testing "custom externs"
@@ -69,11 +71,12 @@
         (is (= actual-prod-externs-paths ["a/b/externs.js"]))))
 
     (testing "for development environment"
-      (let [config (core/build-config (merge base-development-config
-                                             {:hydrogen.module/core {:externs-paths {:production ["a/b/externs.js"]
-                                                                                     :development ["x/y/another-externs.js"]}}}))
-            actual-prod-externs-paths (get-in config [:duct.server/figwheel :builds 0 :build-options :externs])]
-        (is (= actual-prod-externs-paths ["x/y/another-externs.js"])))))
+      (let [config (core/build-config (assoc-in base-development-config
+                                                [:hydrogen.module/core :externs-paths]
+                                                {:production ["a/b/externs.js"]
+                                                 :development ["x/y/another-externs.js"]}))
+            actual-dev-externs-paths (get-in config [:duct.server/figwheel :options :externs])]
+        (is (= actual-dev-externs-paths ["x/y/another-externs.js"])))))
 
   (testing "defaulting environment-specific externs"
     (let [config (core/build-config (merge base-production-config
