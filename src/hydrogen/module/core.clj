@@ -43,16 +43,22 @@
 
 (defn- figwheel-config
   [config options]
-  (let [project-dirs (util/project-dirs config options)]
-    {:css-dirs [(format "target/resources/%s/public/css" project-dirs)]
-     :builds [{:id "dev"
-               :figwheel {:on-jsload (format "%s.client/mount-root" project-dirs)}
-               :source-paths ["dev/src" "src"]
-               :build-options (duct-server-figwheel-build-options config options)}]}))
+  (if (:figwheel-main options)
+    {:id "dev"
+     :options (duct-server-figwheel-build-options config options)
+     :config {:mode :serve
+              :open-url false
+              :css-dirs ["resources"]}}
+
+    (let [project-dirs (util/project-dirs config options)]
+      {:css-dirs [(format "target/resources/%s/public/css" project-dirs)]
+       :builds [{:id "dev"
+                 :figwheel {:on-jsload (format "%s.client/mount-root" project-dirs)}
+                 :source-paths ["dev/src" "src"]
+                 :build-options (duct-server-figwheel-build-options config options)}]})))
 
 (defn- core-config [config options]
-  (let [project-ns (util/project-ns config options)
-        environment (util/get-environment config options)]
+  (let [environment (util/get-environment config options)]
     (cond-> {}
 
       (= environment :development)

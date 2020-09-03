@@ -1,10 +1,10 @@
-(defproject hydrogen/module.core "0.1.12-SNAPSHOT"
+(defproject hydrogen/module.core "0.2.0-SNAPSHOT"
   :description "Duct module for doing cljs-based SPA applications the Hydrogen way."
   :url "https://github.com/magnetcoop/hydrogen.module.core"
   :license {:name "Mozilla Public Licence 2.0"
             :url "https://www.mozilla.org/en-US/MPL/2.0/"}
-  :dependencies [[org.clojure/clojure "1.10.0"]
-                 [org.clojure/clojurescript "1.10.741"]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/clojurescript "1.10.773"]
                  [duct/core "0.8.0"]
                  [integrant "0.8.0"]]
   :deploy-repositories [["snapshots" {:url "https://clojars.org/repo"
