@@ -39,19 +39,19 @@
   (testing "blank development config"
     (is (= {:duct.core/project-ns 'foo.bar
             :duct.core/environment :development
-            :duct.server/figwheel {:id "dev"
-                                   :options {:main 'foo.bar.client
-                                             :output-to "target/resources/foo/bar/public/js/main.js"
-                                             :output-dir "target/resources/foo/bar/public/js"
-                                             :asset-path "/js"
-                                             :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
-                                             :verbose false
-                                             :preloads ['day8.re-frame-10x.preload]
-                                             :optimizations :none
-                                             :externs ["src/foo/bar/client/externs.js"]}
-                                   :config {:mode :serve
-                                            :open-url false
-                                            :css-dirs ["resources"]}}}
+            :duct.server/figwheel-main {:id "dev"
+                                        :options {:main 'foo.bar.client
+                                                  :output-to "target/resources/foo/bar/public/js/main.js"
+                                                  :output-dir "target/resources/foo/bar/public/js"
+                                                  :asset-path "/js"
+                                                  :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+                                                  :verbose false
+                                                  :preloads ['day8.re-frame-10x.preload]
+                                                  :optimizations :none
+                                                  :externs ["src/foo/bar/client/externs.js"]}
+                                        :config {:mode :serve
+                                                 :open-url false
+                                                 :css-dirs ["resources"]}}}
            (core/build-config base-development-config))))
 
   (testing "custom externs"
@@ -75,7 +75,7 @@
                                                 [:hydrogen.module/core :externs-paths]
                                                 {:production ["a/b/externs.js"]
                                                  :development ["x/y/another-externs.js"]}))
-            actual-dev-externs-paths (get-in config [:duct.server/figwheel :options :externs])]
+            actual-dev-externs-paths (get-in config [:duct.server/figwheel-main :options :externs])]
         (is (= actual-dev-externs-paths ["x/y/another-externs.js"])))))
 
   (testing "defaulting environment-specific externs"

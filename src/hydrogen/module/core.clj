@@ -41,29 +41,38 @@
      :externs (or (externs-paths options :development)
                   [(format "src/%s/client/externs.js" project-dirs)])}))
 
-(defn- figwheel-config
+(defn- lein-figwheel-config
   [config options]
-  (if (:figwheel-main options)
-    {:id "dev"
-     :options (duct-server-figwheel-build-options config options)
-     :config {:mode :serve
-              :open-url false
-              :css-dirs ["resources"]}}
+  (let [project-dirs (util/project-dirs config options)]
+    {:css-dirs [(format "target/resources/%s/public/css" project-dirs)]
+     :builds [{:id "dev"
+               :figwheel {:on-jsload (format "%s.client/mount-root" project-dirs)}
+               :source-paths ["dev/src" "src"]
+               :build-options (duct-server-figwheel-build-options config options)}]}))
 
-    (let [project-dirs (util/project-dirs config options)]
-      {:css-dirs [(format "target/resources/%s/public/css" project-dirs)]
-       :builds [{:id "dev"
-                 :figwheel {:on-jsload (format "%s.client/mount-root" project-dirs)}
-                 :source-paths ["dev/src" "src"]
-                 :build-options (duct-server-figwheel-build-options config options)}]})))
+(defn- figwheel-main-config
+  [config options]
+  {:id "dev"
+   :options (duct-server-figwheel-build-options config options)
+   :config {:mode :serve
+            :open-url false
+            :css-dirs ["resources"]}})
 
 (defn- core-config [config options]
   (let [environment (util/get-environment config options)]
     (cond-> {}
 
-      (= environment :development)
+      (and (= environment :development)
+           (:figwheel-main options))
+
+      (assoc :duct.server/figwheel-main
+             (figwheel-main-config config options))
+
+      (and (= environment :development)
+           (not (:figwheel-main options)))
+
       (assoc :duct.server/figwheel
-             (figwheel-config config options))
+             (lein-figwheel-config config options))
 
       (= environment :production)
       (assoc :duct.compiler/cljs (compiler-config config options)))))
