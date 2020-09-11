@@ -51,7 +51,7 @@
                                                   :externs ["src/foo/bar/client/externs.js"]}
                                         :config {:mode :serve
                                                  :open-url false
-                                                 :ring-server-options {:port 3449 :host "localhost"}
+                                                 :ring-server-options {:port 3449 :host "0.0.0.0"}
                                                  :css-dirs ["target/resources/foo/bar/public/css"]}}}
            (core/build-config base-development-config))))
 

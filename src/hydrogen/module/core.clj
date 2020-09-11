@@ -57,7 +57,7 @@
      :options (duct-server-figwheel-build-options config options)
      :config {:mode :serve
               :open-url false
-              :ring-server-options {:port 3449 :host "localhost"}
+              :ring-server-options {:port 3449 :host "0.0.0.0"}
               :css-dirs [(format "target/resources/%s/public/css" project-dirs)]}}))
 
 (defn- core-config [config options]
