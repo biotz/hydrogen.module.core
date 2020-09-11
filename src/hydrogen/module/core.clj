@@ -52,11 +52,13 @@
 
 (defn- figwheel-main-config
   [config options]
-  {:id "dev"
-   :options (duct-server-figwheel-build-options config options)
-   :config {:mode :serve
-            :open-url false
-            :css-dirs ["resources"]}})
+  (let [project-dirs (util/project-dirs config options)]
+    {:id "dev"
+     :options (duct-server-figwheel-build-options config options)
+     :config {:mode :serve
+              :open-url false
+              :ring-server-options {:port 3449 :host "localhost"}
+              :css-dirs [(format "target/resources/%s/public/css" project-dirs)]}}))
 
 (defn- core-config [config options]
   (let [environment (util/get-environment config options)]
