@@ -6,6 +6,7 @@ It implements a module for [Duct](https://github.com/duct-framework/duct).
 ## Installation
 
 [![Clojars Project](https://img.shields.io/clojars/v/hydrogen/module.core.svg)](https://clojars.org/hydrogen/module.core)
+[![Build Status](https://travis-ci.com/magnetcoop/hydrogen.module.core.svg?branch=master)](https://travis-ci.com/magnetcoop/hydrogen.module.core)
 
 ## Usage
 
