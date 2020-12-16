@@ -22,6 +22,7 @@
         :asset-path "/js"
         :closure-defines {:goog.DEBUG false}
         :aot-cache true
+        :parallel-build true
         :verbose true
         :externs (or (externs-paths options :production)
                      [(format "src/%s/client/externs.js" project-dirs)])
@@ -38,6 +39,7 @@
      :verbose false
      :preloads ['day8.re-frame-10x.preload]
      :optimizations :none
+     :parallel-build true
      :externs (or (externs-paths options :development)
                   [(format "src/%s/client/externs.js" project-dirs)])}))
 

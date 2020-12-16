@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-No unreleased changes at this point.
+## Added
+- Use parallel builds for ClojureScript compilation
 
 ## [0.2.0] - 2020-09-14
 

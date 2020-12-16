@@ -28,6 +28,7 @@
                                                              :verbose false
                                                              :preloads ['day8.re-frame-10x.preload]
                                                              :optimizations :none
+                                                             :parallel-build true
                                                              :externs ["src/foo/bar/client/externs.js"]}}]}}
            (core/build-config base-development-config))))
 

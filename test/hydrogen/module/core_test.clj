@@ -31,6 +31,7 @@
                                     :asset-path "/js"
                                     :closure-defines {:goog.DEBUG false}
                                     :aot-cache true
+                                    :parallel-build true
                                     :verbose true
                                     :externs ["src/foo/bar/client/externs.js"]
                                     :optimizations :advanced}}]}}
@@ -48,6 +49,7 @@
                                                   :verbose false
                                                   :preloads ['day8.re-frame-10x.preload]
                                                   :optimizations :none
+                                                  :parallel-build true
                                                   :externs ["src/foo/bar/client/externs.js"]}
                                         :config {:mode :serve
                                                  :open-url false
