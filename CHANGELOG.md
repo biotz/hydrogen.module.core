@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 No unreleased changes at this point.
 
+## Added
+- **Breaking Change** Support added for `:port`, `:host` and `watch-dirs` Figwheel-main options. Now the `:figwheel-main` key takes a configuration map, instead of a boolean value.
+
 ## [0.2.1] - 2020-12-16
 
 ## Added

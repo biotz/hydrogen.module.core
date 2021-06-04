@@ -54,13 +54,18 @@
 
 (defn- figwheel-main-config
   [config options]
-  (let [project-dirs (util/project-dirs config options)]
+  (let [project-dirs (util/project-dirs config options)
+        port (get-in options [:figwheel-main :port] 3449)
+        host (get-in options [:figwheel-main :host] "0.0.0.0")
+        watch-dirs (get-in options [:figwheel-main :watch-dirs])]
     {:id "dev"
      :options (duct-server-figwheel-build-options config options)
-     :config {:mode :serve
-              :open-url false
-              :ring-server-options {:port 3449 :host "0.0.0.0"}
-              :css-dirs [(format "target/resources/%s/public/css" project-dirs)]}}))
+     :config (cond-> {:mode :serve
+                      :open-url false
+                      :ring-server-options {:port port :host host}
+                      :css-dirs [(format "target/resources/%s/public/css" project-dirs)]}
+               (some? watch-dirs)
+               (assoc :watch-dirs watch-dirs))}))
 
 (defn- core-config [config options]
   (let [environment (util/get-environment config options)]

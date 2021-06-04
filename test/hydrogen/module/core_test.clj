@@ -13,10 +13,21 @@
                        :duct.core/environment :production}
    :hydrogen.module/core {}})
 
+(def port
+  1234)
+
+(def host
+  "127.127.127.127")
+
+(def watch-dirs
+  ["some-dir" "some-other-dir"])
+
 (def base-development-config
   {:duct.profile/base {:duct.core/project-ns 'foo.bar
                        :duct.core/environment :development}
-   :hydrogen.module/core {:figwheel-main true}})
+   :hydrogen.module/core {:figwheel-main {:port port
+                                          :host host
+                                          :watch-dirs watch-dirs}}})
 
 (deftest module-test
   (testing "blank production config"
@@ -53,8 +64,9 @@
                                                   :externs ["src/foo/bar/client/externs.js"]}
                                         :config {:mode :serve
                                                  :open-url false
-                                                 :ring-server-options {:port 3449 :host "0.0.0.0"}
-                                                 :css-dirs ["target/resources/foo/bar/public/css"]}}}
+                                                 :ring-server-options {:port port :host host}
+                                                 :css-dirs ["target/resources/foo/bar/public/css"]
+                                                 :watch-dirs watch-dirs}}}
            (core/build-config base-development-config))))
 
   (testing "custom externs"

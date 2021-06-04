@@ -15,9 +15,12 @@ It implements a module for [Duct](https://github.com/duct-framework/duct).
 ```
 
 And a more realistic example:
+
 ```edn
 {:hydrogen.module/core
-  {:figwheel-main true
+  {:figwheel-main {:port 3449
+                   :host "0.0.0.0"
+                   :watch-dirs ["src/my-app/cljs"]}
    :externs-paths {:production ["src/my-app/client/externs.js"
                                 "src/my-app/client/google_maps_api_v3_36.js"]
                    :development ["oksol/client/google_maps_api_v3_36.js"]}}}
@@ -25,8 +28,7 @@ And a more realistic example:
 
 ### Important!
 
-As of version 0.2.0 this module supports new config syntax suitable for figwheel main.
-Make sure to add `:figwheel-main true` if you are using Figwheel-main.
+As of version 0.2.0 this module supports new config syntax suitable for figwheel main. Make sure to add at least `:figwheel-main {}` if you want to use Figwheel-main. You can also specify the `:port`, `:host` and `watch-dirs` Figwheel-main options.
 
 ### Additional options
 
