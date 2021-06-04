@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 No unreleased changes at this point.
 
+## [0.3.0] - 2021-06-04
+
 ## Changed
 - **Breaking Change** Changed the value of the `:main` build option from `project-name.client` to `project-name.client.main`.
 
@@ -82,7 +84,9 @@ extern file in location `src/<project-dirs>/client/externs.js`.
 - **Breaking change** - Now by default this module doesn't provide example api integrant key.
 To retain it, you have to add `:add-example-api? true` to the config options.
 
-[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.2.1...HEAD
+[UNRELEASED]:  https://github.com/magnetcoop/hydrogen.module.core/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.3.-
+[0.2.3]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.2.2
 [0.2.1]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.2.1
 [0.2.0]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.2.0
 [0.1.11]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.1.11
