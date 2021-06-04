@@ -20,7 +20,7 @@
                                    :builds [{:id "dev"
                                              :figwheel {:on-jsload "foo/bar.client/mount-root"}
                                              :source-paths ["dev/src" "src"]
-                                             :build-options {:main 'foo.bar.client
+                                             :build-options {:main 'foo.bar.client.main
                                                              :output-to "target/resources/foo/bar/public/js/main.js"
                                                              :output-dir "target/resources/foo/bar/public/js"
                                                              :asset-path "/js"

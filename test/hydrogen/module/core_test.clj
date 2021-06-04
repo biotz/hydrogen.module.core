@@ -36,7 +36,7 @@
             :duct.compiler/cljs {:builds
                                  [{:source-paths ["src/"]
                                    :build-options
-                                   {:main 'foo.bar.client
+                                   {:main 'foo.bar.client.main
                                     :output-to "target/resources/foo/bar/public/js/main.js"
                                     :output-dir "target/resources/foo/bar/public/js"
                                     :asset-path "/js"
@@ -52,7 +52,7 @@
     (is (= {:duct.core/project-ns 'foo.bar
             :duct.core/environment :development
             :duct.server/figwheel-main {:id "dev"
-                                        :options {:main 'foo.bar.client
+                                        :options {:main 'foo.bar.client.main
                                                   :output-to "target/resources/foo/bar/public/js/main.js"
                                                   :output-dir "target/resources/foo/bar/public/js"
                                                   :asset-path "/js"

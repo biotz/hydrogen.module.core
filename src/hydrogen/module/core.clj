@@ -16,7 +16,7 @@
     {:builds
      [{:source-paths ["src/"]
        :build-options
-       {:main (symbol (str project-ns ".client"))
+       {:main (symbol (str project-ns ".client.main"))
         :output-to (format "target/resources/%s/public/js/main.js" project-dirs)
         :output-dir (format "target/resources/%s/public/js" project-dirs)
         :asset-path "/js"
@@ -31,7 +31,7 @@
 (defn- duct-server-figwheel-build-options [config options]
   (let [project-ns (util/project-ns config options)
         project-dirs (util/project-dirs config options)]
-    {:main (symbol (str project-ns ".client"))
+    {:main (symbol (str project-ns ".client.main"))
      :output-to (format "target/resources/%s/public/js/main.js" project-dirs)
      :output-dir (format "target/resources/%s/public/js" project-dirs)
      :asset-path "/js"
