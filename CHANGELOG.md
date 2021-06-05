@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-No unreleased changes at this point.
+## Changed
+- **Breaking Change** Reverted the change of the value of the `:main` build option, back to `project-name.client`.
 
 ## [0.3.0] - 2021-06-04
 
