@@ -3,8 +3,7 @@
   For deprecated lein-figwheel tests, see the respective namespace."
   (:require [clojure.test :refer :all]
             [duct.core :as core]
-            [hydrogen.module.core :as sut]
-            [integrant.core :as ig]))
+            [hydrogen.module.core]))
 
 (core/load-hierarchy)
 

@@ -2,8 +2,7 @@
   "This namespace tests assuming the deprecated lein-figwheel being used."
   (:require [clojure.test :refer :all]
             [duct.core :as core]
-            [hydrogen.module.core :as sut]
-            [integrant.core :as ig]))
+            [hydrogen.module.core]))
 
 (core/load-hierarchy)
 
