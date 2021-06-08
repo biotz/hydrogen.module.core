@@ -24,13 +24,17 @@
 (def reload-clj-files
   #{:cljc})
 
+(def helpful-classpaths
+  false)
+
 (def base-development-config
   {:duct.profile/base {:duct.core/project-ns 'foo.bar
                        :duct.core/environment :development}
    :hydrogen.module/core {:figwheel-main {:port port
                                           :host host
                                           :watch-dirs watch-dirs
-                                          :reload-clj-files reload-clj-files}}})
+                                          :reload-clj-files reload-clj-files
+                                          :helpful-classpaths helpful-classpaths}}})
 
 (deftest module-test
   (testing "blank production config"
@@ -70,7 +74,8 @@
                                                  :ring-server-options {:port port :host host}
                                                  :css-dirs ["target/resources/foo/bar/public/css"]
                                                  :watch-dirs watch-dirs
-                                                 :reload-clj-files reload-clj-files}}}
+                                                 :reload-clj-files reload-clj-files
+                                                 :helpful-classpaths helpful-classpaths}}}
            (core/build-config base-development-config))))
 
   (testing "custom externs"

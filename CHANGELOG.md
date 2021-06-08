@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## Added
+- Support added for `:helpful-classpaths` Figwheel-main configuration option.
+
 ## [0.4.1] - 2021-06-08
 
 ## Added
