@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## Added
 - clj-kondo linter configuration files.
+- Support added for `:reload-clj-files` Figwheel-main configuration option.
 
 ## [0.4.0] - 2021-06-05
 

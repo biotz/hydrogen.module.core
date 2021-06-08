@@ -57,7 +57,8 @@
   (let [project-dirs (util/project-dirs config options)
         port (get-in options [:figwheel-main :port] 3449)
         host (get-in options [:figwheel-main :host] "0.0.0.0")
-        watch-dirs (get-in options [:figwheel-main :watch-dirs])]
+        watch-dirs (get-in options [:figwheel-main :watch-dirs])
+        reload-clj-files (get-in options [:figwheel-main :reload-clj-files])]
     {:id "dev"
      :options (duct-server-figwheel-build-options config options)
      :config (cond-> {:mode :serve
@@ -65,7 +66,10 @@
                       :ring-server-options {:port port :host host}
                       :css-dirs [(format "target/resources/%s/public/css" project-dirs)]}
                (some? watch-dirs)
-               (assoc :watch-dirs watch-dirs))}))
+               (assoc :watch-dirs watch-dirs)
+
+               (some? reload-clj-files)
+               (assoc :reload-clj-files reload-clj-files))}))
 
 (defn- core-config [config options]
   (let [environment (util/get-environment config options)]
