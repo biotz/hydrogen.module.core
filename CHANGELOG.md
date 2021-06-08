@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.4.2] - 2021-06-08
+
 ## Added
 - Support added for `:helpful-classpaths` Figwheel-main configuration option.
 
@@ -96,7 +98,8 @@ extern file in location `src/<project-dirs>/client/externs.js`.
 - **Breaking change** - Now by default this module doesn't provide example api integrant key.
 To retain it, you have to add `:add-example-api? true` to the config options.
 
-[UNRELEASED]: https://github.com/magnetcoop/hydrogen.module.core/compare/v0.4.1...HEAD
+[UNRELEASED]: https://github.com/magnetcoop/hydrogen.module.core/compare/v0.4.2...HEAD
+[0.4.2]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.4.2
 [0.4.1]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.4.1
 [0.4.0]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.4.0
 [0.3.0]: https://github.com/magnetcoop/hydrogen.module.core/releases/tag/v0.3.0
