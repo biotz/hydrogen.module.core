@@ -20,7 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - **Breaking Change** Changed the value of the `:main` build option from `project-name.client` to `project-name.client.main`.
 
 ## Added
-- **Breaking Change** Support added for `:port`, `:host` and `watch-dirs` Figwheel-main options. Now the `:figwheel-main` key takes a configuration map, instead of a boolean value.
+- **Breaking Change** Support added for `:port` and `:host` values of the `:ring-server-options` Figwheel-main configuration option, and `watch-dirs` configuration option. Now the `:figwheel-main` key takes a configuration map with the previous supported values, instead of a boolean value.
 
 ## [0.2.1] - 2020-12-16
 
