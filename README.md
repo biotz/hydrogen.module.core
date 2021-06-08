@@ -53,12 +53,9 @@ As of version 0.3.0 this module supports new config syntax suitable for Figwheel
 ### Additional options
 
 - **Externs**\[1\] - to configure them use `:externs-paths` option. It accepts two formats:
-    - `{:externs-paths ["a.js" "b.js"]}` - this would apply both files as externs both in development environment
-     (as part of `:duct.server/figwheel` config)
-     and in production environment
-     (as part of `:duct.compiler/cljs` config).
+    - `{:externs-paths ["a.js" "b.js"]}` - this would apply both files as externs both in development environment (as part of `:duct.server/figwheel` config) and in production environment (as part of `:duct.compiler/cljs` config).
     - `{:externs-paths {:production ["a.js"] :development ["x.js" "y.js"]}}`
- 
+
 #### \[1\]Note
 
 Figwheel expects files with .js extension inside its source directories to be a foreign library. And foreign libraries **MUST** declare a namespace. In fact, figwheel assumes it, and if it doesn't find it and can't map the file back to a source file, it bombs out with a NullPointerException.
